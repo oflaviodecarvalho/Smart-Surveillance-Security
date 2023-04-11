@@ -1,0 +1,48 @@
+plugins {
+    id 'java'
+    id 'com.google.protobuf' version '0.9.1'
+}
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.21.7"
+    }
+    plugins {
+        grpc {
+            artifact = 'io.grpc:protoc-gen-grpc-java:1.54.0'
+        }
+    }
+    generateProtoTasks {
+        all()*.plugins {
+            grpc {}
+        }
+    }
+}
+group 'org.flavio.server'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    google()
+    maven {
+        url "https://jitpack.io"
+    }
+}
+
+dependencies {
+    implementation 'io.quarkiverse.jdbc:quarkus-jdbc-sqlite:3.0.0'
+    implementation 'io.grpc:grpc-stub:1.53.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testImplementation 'junit:junit:4.13.1'
+    testImplementation 'io.grpc:grpc-testing:1.53.0'
+    compileOnly 'javax.annotation:javax.annotation-api:1.3.2'
+    implementation 'javax.annotation:javax.annotation-api:1.3.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    runtimeOnly 'io.grpc:grpc-netty-shaded:1.54.0'
+    implementation 'io.grpc:grpc-protobuf:1.54.0'
+    compileOnly 'org.apache.tomcat:annotations-api:6.0.53'
+
+}
+
+test {
+    useJUnitPlatform()
+}
