@@ -18,12 +18,18 @@ bool ring=1;
 }
 
 message SetPerimeterLevelRequest{
-repeated double perimeter=1;
+repeated LatLng perimeter=1;
 }
 
 message SetPerimeterLevelResponse{
 bool success=1;
 string message=2;
+repeated LatLng perimeter=3;
+}
+
+message LatLng{
+  double latitude=1;
+  double longitude=2;
 }
 
 message CheckUserAccessPermissionRequest{
