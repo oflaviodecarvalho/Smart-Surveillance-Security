@@ -1,5 +1,7 @@
 package org.flavio.server;
 
+import org.flavio.server.clients.RPCClients;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,6 +19,11 @@ public class Main {
         SmartServer server=new SmartServer();
         server.start();
         server.server.awaitTermination();
+
+        /**
+         * Client configuration. We will use the UI to make the process simpler
+         */
+
     }
 
     /**

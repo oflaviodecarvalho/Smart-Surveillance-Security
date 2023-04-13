@@ -10,6 +10,7 @@ import java.util.List;
 public class ListControlServiceImpl extends ListControlGrpc.ListControlImplBase {
     @Override
     public void createUser(CreateUserRequest request, StreamObserver<ConfirmationCreateUserResponse> responseObserver) {
+        System.out.println("Add User Reuested"+request.getUserName());
         /**
          * Creates a new user with the provided parameters
          */

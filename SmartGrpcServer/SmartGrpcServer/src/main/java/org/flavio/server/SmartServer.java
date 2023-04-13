@@ -17,18 +17,24 @@ public class SmartServer {
          * Create a server instance and add our services
          * I
          */
-        server= ServerBuilder.forPort(8089).addService(new AccessMonitoringImpl())
-                .addService(new ListControlServiceImpl())
-                .addService(new MonitoringCenterImpl())
-                .build();
-        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+        try {
+            server= ServerBuilder.forPort(8089).addService(new AccessMonitoringImpl())
+                    .addService(new ListControlServiceImpl())
+                    .addService(new MonitoringCenterImpl())
+                    .build().start();
+            server.awaitTermination();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        /*Runtime.getRuntime().addShutdownHook(new Thread(() -> {
             System.err.println("Shutting down gRPC server");
             try {
-                server.shutdown().awaitTermination(30, TimeUnit.SECONDS);
+
             } catch (InterruptedException e) {
                 e.printStackTrace(System.err);
             }
-        }));
+        }));*/
     }
 
 
