@@ -18,3 +18,15 @@
 * Click on Build->Build Project. This is necessary to compile the proto files.
 * Switch to src->test->java->SmartGrpcServerTest.java
 * Run the tests.All tests should be passing
+
+
+### Milestones
+
+- Project Setup ****** Done
+- Service Setup ***** Done
+- Proto Design ***** Done
+- Server Tests ***** Done
+- Server Implementation ***** Done
+- Client BoilerPlate ***** Done
+- jmDNS ****** DONE
+- UI ***** DONE
