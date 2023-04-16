@@ -1,5 +1,7 @@
 package org.flavio.server;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.flavio.server.clients.RPCClients;
 
 import java.io.IOException;
@@ -7,17 +9,42 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.*;
 
 public class Main {
+    public static ObservableList<String> eventsList= FXCollections.observableArrayList();
+    public static ObservableList<String> userList=FXCollections.observableArrayList();
+
+    public static ObservableList<String> listControlMessages=FXCollections.observableArrayList();
+    public static ObservableList<String> alertMessages=FXCollections.observableArrayList();
+    public static ObservableList<String> accessMessages=FXCollections.observableArrayList();
+
+    public static Map<String ,LatLng> rolesAndBounds=new LinkedHashMap<>();
+    public static Map<String,LatLng> usersAndLocations=new LinkedHashMap<>();
+
+
     public static void main(String[] args) throws SQLException, IOException, InterruptedException {
+        rolesAndBounds.put("Admin", LatLng.newBuilder()
+                        .setLatitude(34.0)
+                        .setLongitude(0.345)
+                .build());
+        rolesAndBounds.put("Staff", LatLng.newBuilder()
+                .setLatitude(24.0)
+                .setLongitude(0.123)
+                .build());
+        rolesAndBounds.put("Security", LatLng.newBuilder()
+                .setLatitude(12.0)
+                .setLongitude(0.234)
+                .build());
         setupDb();
 
         /**
          *
          * Start the server
          */
-        SmartServer server=new SmartServer();
+        SmartServer server=new SmartServer(args);
         server.start();
+        eventsList.add(Calendar.getInstance().getTime()+" :Server Started on port "+server.server.getPort());
         server.server.awaitTermination();
 
         /**

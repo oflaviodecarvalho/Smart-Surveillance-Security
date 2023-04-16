@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import com.sun.javafx.scene.control.DoubleField?>
+<GridPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="AccessMonitoring">
+    <DoubleField fx:id="latitudeInput"
+               promptText="Latitude"
+               value="0.0"
+               GridPane.columnIndex="0"
+               GridPane.rowIndex="1">
+        <GridPane.margin>
+            <Insets topRightBottomLeft="10"/>
+        </GridPane.margin>
+    </DoubleField>
+    <DoubleField fx:id="longitudeInput"
+                 promptText="Longitude"
+                 GridPane.columnIndex="0"
+                 GridPane.rowIndex="2">
+        <GridPane.margin>
+            <Insets topRightBottomLeft="10"/>
+        </GridPane.margin>
+    </DoubleField>
+
+    <Button fx:id="setPerimeter" onMouseClicked="#setPerimeter"
+            text="Set Perimeter"
+            GridPane.columnIndex="0"
+            GridPane.rowIndex="4">
+        <GridPane.margin>
+            <Insets topRightBottomLeft="10"/>
+        </GridPane.margin>
+    </Button>
+    <ListView
+            fx:id="usersList"
+            GridPane.columnIndex="1"
+            GridPane.rowIndex="1"
+            prefHeight="600"
+            GridPane.rowSpan="3"
+    >
+        <GridPane.margin>
+            <Insets topRightBottomLeft="10"/>
+        </GridPane.margin>
+    </ListView>
+    <ListView
+            fx:id="responseList"
+            GridPane.columnIndex="2"
+            GridPane.rowIndex="1"
+            prefHeight="600"
+            GridPane.rowSpan="3"
+    >
+        <GridPane.margin>
+            <Insets topRightBottomLeft="10"/>
+        </GridPane.margin>
+    </ListView>
+    <Button fx:id="loadUsers" onMouseClicked="#loadUsers"
+            text="Load Users"
+            GridPane.columnIndex="1"
+            GridPane.rowIndex="4"
+            alignment="CENTER">
+        <GridPane.margin>
+            <Insets topRightBottomLeft="10"/>
+        </GridPane.margin>
+    </Button>
+    <Button fx:id="ringBel" onMouseClicked="#ringBel"
+            text="Ring Bell"
+            GridPane.columnIndex="2"
+            GridPane.rowIndex="4"
+            alignment="CENTER">
+        <GridPane.margin>
+            <Insets topRightBottomLeft="10"/>
+        </GridPane.margin>
+    </Button>
+    <columnConstraints>
+        <ColumnConstraints prefWidth="250"/>
+        <ColumnConstraints prefWidth="300"/>
+        <ColumnConstraints prefWidth="300"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints prefHeight="40"/>
+        <RowConstraints prefHeight="40"/>
+        <RowConstraints prefHeight="40"/>
+        <RowConstraints prefHeight="40"/>
+    </rowConstraints>
+
+</GridPane>

@@ -5,8 +5,15 @@ package org.flavio.server;
 service ListControl{
 rpc createUser(CreateUserRequest) returns (ConfirmationCreateUserResponse);
 rpc modifyAccessLevel(ModifyUserAccessLevelRequest) returns (ConfirmationModifyAccessLevelResponse);
+rpc loadUserList(LoadUsersRequest) returns(UserListResponse);
+}
+message LoadUsersRequest{
+
 }
 
+message UserListResponse{
+  repeated string users=1;
+}
 message CreateUserRequest{
 string userName=1;
 string password=2;

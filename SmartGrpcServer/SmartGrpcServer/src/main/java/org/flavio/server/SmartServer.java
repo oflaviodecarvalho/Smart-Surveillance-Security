@@ -4,14 +4,24 @@ import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.ServerServiceDefinition;
 import io.grpc.ServiceDescriptor;
+import org.flavio.server.clients.RPCClients;
+import org.flavio.server.clients.RPCClientsMain;
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class SmartServer {
     Server server;
+ String[] args;
+    public SmartServer(String[] args) {
+        this.args=args;
+    }
+
     public void start() throws IOException{
         /**
          * Create a server instance and add our services
@@ -22,19 +32,17 @@ public class SmartServer {
                     .addService(new ListControlServiceImpl())
                     .addService(new MonitoringCenterImpl())
                     .build().start();
-            server.awaitTermination();
+            Main.eventsList.add(Calendar.getInstance().getTime()+" :Server Started on port "+server.getPort());
+           setupMainWindow();
         }catch (Exception e){
             e.printStackTrace();
         }
 
-        /*Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-            System.err.println("Shutting down gRPC server");
-            try {
 
-            } catch (InterruptedException e) {
-                e.printStackTrace(System.err);
-            }
-        }));*/
+    }
+
+    private void setupMainWindow() throws InterruptedException {
+        RPCClientsMain.main(args);
     }
 
 

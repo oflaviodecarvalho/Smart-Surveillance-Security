@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:controller="Start"
+          stylesheets="main.css"
+          prefHeight="600.0" prefWidth="800.0">
+    <Text
+        text="Smart Distributed Security"
+        textAlignment="CENTER"
+        GridPane.columnIndex="0"
+        GridPane.halignment="CENTER"
+        GridPane.rowIndex="0"
+        styleClass="fw_24"
+        GridPane.columnSpan="10">
+            <GridPane.margin>
+                <Insets topRightBottomLeft="10"/>
+            </GridPane.margin>
+    </Text>
+<Button
+    GridPane.columnIndex="0"
+    GridPane.rowIndex="1"
+    fx:id="listControl"
+    styleClass="fs_24"
+    text="User List Control"
+    onMouseClicked="#openListControl"
+    prefHeight="60"
+    prefWidth="300">
+    <GridPane.margin>
+        <Insets topRightBottomLeft="20"/>
+    </GridPane.margin>
+</Button>
+    <Button
+            GridPane.columnIndex="0"
+            GridPane.rowIndex="2"
+            fx:id="monitoring"
+            styleClass="fs_24"
+            text="Monitoring Client"
+            onMouseClicked="#openMonitoring"
+            prefHeight="60"
+            prefWidth="300">
+        <GridPane.margin>
+            <Insets topRightBottomLeft="20"/>
+        </GridPane.margin>
+    </Button>
+    <Button
+            GridPane.columnIndex="0"
+            GridPane.rowIndex="3"
+            fx:id="accessMonitoring"
+            styleClass="fs_24"
+            onMouseClicked="#openAccess"
+            text="Access Monitoring Client"
+            prefHeight="60"
+            prefWidth="300">
+        <GridPane.margin>
+            <Insets topRightBottomLeft="20"/>
+        </GridPane.margin>
+    </Button>
+    <ListView
+        GridPane.columnSpan="10"
+        GridPane.rowIndex="1"
+        GridPane.columnIndex="1"
+        GridPane.rowSpan="3"
+        prefWidth="400"
+        fx:id="eventsList"/>
+</GridPane>

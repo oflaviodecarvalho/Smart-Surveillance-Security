@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'com.google.protobuf' version '0.9.1'
+    id 'org.openjfx.javafxplugin' version '0.0.9'
 }
 protobuf {
     protoc {
@@ -61,4 +62,9 @@ protobuf {
             grpc {}
         }
     }
+}
+javafx {
+    version = "11"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+    // mainClassName="org.shayana.ClientStart"
 }

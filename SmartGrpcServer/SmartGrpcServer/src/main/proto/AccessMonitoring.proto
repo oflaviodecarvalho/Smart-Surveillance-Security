@@ -13,12 +13,12 @@ message RingAlarmRequest{
 }
 
 message RingAlarmResponse{
-
 bool ring=1;
 }
 
 message SetPerimeterLevelRequest{
 repeated LatLng perimeter=1;
+string userName=2;
 }
 
 message SetPerimeterLevelResponse{

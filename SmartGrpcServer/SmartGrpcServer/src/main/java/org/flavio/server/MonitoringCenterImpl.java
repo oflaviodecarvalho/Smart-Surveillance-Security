@@ -2,14 +2,14 @@ package org.flavio.server;
 
 import io.grpc.stub.StreamObserver;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.util.Locale;
 
 public class MonitoringCenterImpl extends MonitoringCenterGrpc.MonitoringCenterImplBase {
+
     /**
      *Retrieve and relay any available alert messages
      * Alert messages are logged when an invasion event is received
@@ -51,9 +51,10 @@ public class MonitoringCenterImpl extends MonitoringCenterGrpc.MonitoringCenterI
             PreparedStatement statement=connection.prepareStatement(sql);
             statement.setString(1,request.getUserName());
             statement.execute();
-            sql="INSERT INTO Alerts(message)Values(?)";
+            sql="INSERT INTO Alerts(dateOfIncident,message)Values(?,?)";
             statement=connection.prepareStatement(sql);
-            statement.setString(1,"Intrusion detected. Intruder user name: "+request.getUserName());
+            statement.setTimestamp(1, Timestamp.valueOf(LocalDateTime.now()));
+            statement.setString(2,"Intrusion detected. Intruder user name: "+request.getUserName());
             statement.execute();
             statement.closeOnCompletion();
             connection.close();

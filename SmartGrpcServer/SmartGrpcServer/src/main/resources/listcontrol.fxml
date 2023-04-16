@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="Listcontrol">
+    <TextField fx:id="usernameInput" promptText="Input User Name" text="User Name" GridPane.columnIndex="0"
+               GridPane.rowIndex="1">
+        <GridPane.margin>
+            <Insets topRightBottomLeft="10"/>
+        </GridPane.margin>
+    </TextField>
+    <PasswordField fx:id="passwordinput" promptText="Password" GridPane.columnIndex="0" GridPane.rowIndex="2">
+        <GridPane.margin>
+            <Insets topRightBottomLeft="10"/>
+        </GridPane.margin>
+    </PasswordField>
+
+    <ComboBox fx:id="roles" prefHeight="26.0" prefWidth="210.0" promptText="User Role"
+               GridPane.columnIndex="0" GridPane.rowIndex="3">
+        <GridPane.margin>
+            <Insets topRightBottomLeft="10"/>
+        </GridPane.margin>
+    </ComboBox>
+    <Button fx:id="saveUser" onMouseClicked="#saveUser" text="Save User" GridPane.columnIndex="0" GridPane.rowIndex="4">
+        <GridPane.margin>
+            <Insets topRightBottomLeft="10"/>
+        </GridPane.margin>
+    </Button>
+    <ListView
+            fx:id="usersList"
+            GridPane.columnIndex="1"
+            GridPane.rowIndex="1"
+            prefHeight="600"
+            GridPane.rowSpan="3"
+        >
+        <GridPane.margin>
+            <Insets topRightBottomLeft="10"/>
+        </GridPane.margin>
+    </ListView>
+    <ListView
+            fx:id="responseList"
+            GridPane.columnIndex="2"
+            GridPane.rowIndex="1"
+            prefHeight="600"
+            GridPane.rowSpan="3"
+    >
+        <GridPane.margin>
+            <Insets topRightBottomLeft="10"/>
+        </GridPane.margin>
+    </ListView>
+    <Button fx:id="loadUsers" onMouseClicked="#loadUsers"
+            text="Load Users"
+            GridPane.columnIndex="1"
+            GridPane.rowIndex="4"
+            alignment="CENTER">
+        <GridPane.margin>
+            <Insets topRightBottomLeft="10"/>
+        </GridPane.margin>
+    </Button>
+    <Button fx:id="modifyAccess" onMouseClicked="#modifyRoles"
+            text="Modify Roles"
+            GridPane.columnIndex="2"
+            GridPane.rowIndex="4"
+            alignment="CENTER">
+        <GridPane.margin>
+            <Insets topRightBottomLeft="10"/>
+        </GridPane.margin>
+    </Button>
+    <columnConstraints>
+        <ColumnConstraints prefWidth="250"/>
+        <ColumnConstraints prefWidth="300"/>
+        <ColumnConstraints prefWidth="300"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints prefHeight="40"/>
+        <RowConstraints prefHeight="40"/>
+        <RowConstraints prefHeight="40"/>
+        <RowConstraints prefHeight="40"/>
+    </rowConstraints>
+
+</GridPane>

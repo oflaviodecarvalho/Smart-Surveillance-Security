@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+          xmlns:fx="http://javafx.com/fxml/1" fx:controller="MonitoringCenter">
+
+    <ListView
+            fx:id="usersList"
+            GridPane.columnIndex="0"
+            GridPane.rowIndex="1"
+            prefHeight="600"
+            GridPane.rowSpan="3"
+        >
+        <GridPane.margin>
+            <Insets topRightBottomLeft="10"/>
+        </GridPane.margin>
+    </ListView>
+    <ListView
+            fx:id="alertMessages"
+            GridPane.columnIndex="1"
+            GridPane.rowIndex="1"
+            prefHeight="600"
+            GridPane.rowSpan="3"
+    >
+        <GridPane.margin>
+            <Insets topRightBottomLeft="10"/>
+        </GridPane.margin>
+    </ListView>
+    <Button fx:id="loadUsers" onMouseClicked="#loadUsers"
+            text="Load Users"
+            GridPane.columnIndex="0"
+            GridPane.rowIndex="4"
+            alignment="CENTER">
+        <GridPane.margin>
+            <Insets topRightBottomLeft="10"/>
+        </GridPane.margin>
+    </Button>
+    <Button fx:id="deleteUser" onMouseClicked="#deleteUser"
+            text="Delete User"
+            GridPane.columnIndex="1"
+            GridPane.rowIndex="4"
+            alignment="CENTER">
+        <GridPane.margin>
+            <Insets topRightBottomLeft="10"/>
+        </GridPane.margin>
+    </Button>
+    <Button fx:id="loadAlerts" onMouseClicked="#loadAlerts"
+            text="Load Alerts"
+            GridPane.columnIndex="2"
+            GridPane.rowIndex="4"
+            alignment="CENTER">
+        <GridPane.margin>
+            <Insets topRightBottomLeft="10"/>
+        </GridPane.margin>
+    </Button>
+    <columnConstraints>
+        <ColumnConstraints prefWidth="300"/>
+        <ColumnConstraints prefWidth="300"/>
+        <ColumnConstraints prefWidth="100"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints prefHeight="40"/>
+        <RowConstraints prefHeight="40"/>
+        <RowConstraints prefHeight="40"/>
+        <RowConstraints prefHeight="40"/>
+    </rowConstraints>
+
+</GridPane>
