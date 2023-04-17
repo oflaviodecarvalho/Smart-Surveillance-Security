@@ -1,0 +1,36 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package org.flavio.server;
+
+service MonitoringCenter{
+rpc alertMessages(AlertMessagesRequest) returns (stream AlertMessagesResponse);
+rpc controlDoorsRemotely(stream ControlDoorRequest) returns (stream ControlDoorResponse);
+rpc deleteUser(InvasionRequest) returns (stream InvasionResponse);
+}
+
+message AlertMessagesRequest{
+
+}
+
+message AlertMessagesResponse{
+repeated string messages=1;
+}
+
+message ControlDoorRequest{
+bool close=1;
+}
+
+message ControlDoorResponse{
+bool success=1;
+bool isOpen=2;
+}
+
+message InvasionRequest{
+string message=1;
+string userName=2;
+}
+
+message InvasionResponse{
+bool success=1;
+string message=2;
+}

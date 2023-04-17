@@ -1,4 +1,0 @@
-rootProject.name = 'SmartGrpcServer'
-include 'src:clients'
-findProject(':src:clients')?.name = 'clients'
-
