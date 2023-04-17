@@ -4,7 +4,7 @@ CA1 Distributed Systems
 # Setup
 ### Requirements
 - Eclipse Version: 2023-03 (4.27.0)
-- Java 8+ (This project uses 11+)
+- Java 8+ (This project uses 11)
 - Basic Java Knowledge
 
 ### Project Structure
